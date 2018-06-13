@@ -1,19 +1,46 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <FilmsHeader />
+    <FilmsComponent />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import axios from 'axios';
+import FilmsHeader from './components/header.vue';
+import FilmsComponent from './components/films_component.vue';
+
+
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
-  }
-}
+    FilmsHeader,
+    FilmsComponent,
+  },
+ 
+ data () {
+   return {
+     films: [],
+     loading: false
+   }
+ }, 
+ // methods: {
+ //   getFilms: function () {
+ //     console.log('Estoy en getFilms');
+ //     this.loading = true;
+ //     axios.get("https://api.themoviedb.org/3/movie/76341?api_key=2b072647db7f748846798db37c85bf9e")
+ //     .then((response)  =>  {
+ //       // this.loading = false;
+ //       // this.films = response //.data.value;
+ //       console.log('cucu desde llamada api')
+ //     }, (error)  =>  {
+ //       this.loading = false;
+ //       console.log('Error cargando datos de la API');
+ //     })
+ //    }
+ //  },
+};
 </script>
 
 <style>
